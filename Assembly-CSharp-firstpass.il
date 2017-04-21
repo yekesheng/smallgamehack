@@ -9114,12 +9114,9 @@
   .method public hidebysig static bool  Test() cil managed
   {
     // 代码大小       8 (0x8)
-    .maxstack  2
-    .locals init (bool V_0)
-    IL_0000:  call       bool Steamworks.DllCheck::CheckSteamAPIDLL()
-    IL_0005:  stloc.0
-    IL_0006:  ldloc.0
-    IL_0007:  ret
+    .maxstack  8
+    IL_0000:  ldc.i4.1
+    IL_0001:  ret
   } // end of method DllCheck::Test
 
   .method private hidebysig static bool  CheckSteamAPIDLL() cil managed
@@ -9219,7 +9216,7 @@
     IL_00ca:  call       string [mscorlib]System.String::Concat(string,
                                                                 string)
     IL_00cf:  call       void [UnityEngine]UnityEngine.Debug::LogError(object)
-    IL_00d4:  ldc.i4.0
+    IL_00d4:  ldc.i4.1
     IL_00d5:  ret
 
     IL_00d6:  ldloc.1
@@ -9286,7 +9283,7 @@
     IL_0131:  ldc.i4     0xd25db72d
     IL_0136:  beq        IL_013d
 
-    IL_013b:  ldc.i4.0
+    IL_013b:  ldc.i4.1
     IL_013c:  ret
 
     IL_013d:  ldc.i4.1
@@ -27980,12 +27977,6 @@
     .maxstack  6
     .locals init (class Steamworks.InteropHelp/UTF8StringHandle V_0,
              int32 V_1)
-    IL_0000:  ldsfld     bool GameGlobal::m_bWrongDLL
-    IL_0005:  brfalse    IL_000c
-
-    IL_000a:  ldc.i4.0
-    IL_000b:  ret
-
     IL_000c:  call       void Steamworks.InteropHelp::TestIfAvailableClient()
     IL_0011:  ldarg.0
     IL_0012:  newobj     instance void Steamworks.InteropHelp/UTF8StringHandle::.ctor(string)
@@ -28231,12 +28222,6 @@
     .maxstack  6
     .locals init (class Steamworks.InteropHelp/UTF8StringHandle V_0,
              bool V_1)
-    IL_0000:  ldsfld     bool GameGlobal::m_bWrongDLL
-    IL_0005:  brfalse    IL_000c
-
-    IL_000a:  ldc.i4.0
-    IL_000b:  ret
-
     IL_000c:  call       void Steamworks.InteropHelp::TestIfAvailableClient()
     IL_0011:  ldarg.0
     IL_0012:  newobj     instance void Steamworks.InteropHelp/UTF8StringHandle::.ctor(string)
@@ -28303,12 +28288,6 @@
     .maxstack  6
     .locals init (class Steamworks.InteropHelp/UTF8StringHandle V_0,
              int32 V_1)
-    IL_0000:  ldsfld     bool GameGlobal::m_bWrongDLL
-    IL_0005:  brfalse    IL_000c
-
-    IL_000a:  ldc.i4.0
-    IL_000b:  ret
-
     IL_000c:  call       void Steamworks.InteropHelp::TestIfAvailableClient()
     IL_0011:  ldarg.0
     IL_0012:  newobj     instance void Steamworks.InteropHelp/UTF8StringHandle::.ctor(string)
@@ -44445,6 +44424,11 @@
     IL_0028:  ldfld      int32 RoundData::iNormalLevelCount
     IL_002d:  add
     IL_002e:  stloc.0
+    IL_012f:  ldloc.0
+    IL_0130:  ldc.i4.3
+    IL_0131:  call       int32 [UnityEngine]UnityEngine.Mathf::Max(int32,
+                                                                   int32)
+    IL_013e:  stloc.0
     IL_002f:  ldloc.0
     IL_0030:  ldc.i4.7
     IL_0031:  call       int32 [UnityEngine]UnityEngine.Mathf::Min(int32,
